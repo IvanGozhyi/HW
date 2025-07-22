@@ -26,7 +26,7 @@ let b = prompt("Type 2nd line:");
 let c = prompt("Type 3rd line:");
 
 console.log('Task 2');
-console.log(`Ось у довільному порядку: ${c}, ${a}, ${b}`);
+console.log(`The lines are drawn randomly: ${c}, ${a}, ${b}`);
 
 let number = 10369;
 
