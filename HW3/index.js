@@ -1,5 +1,5 @@
 
-
+//Menu
 let choice = parseInt(prompt("Enter your choice"));
 
 switch(choice) {
@@ -144,4 +144,7 @@ case 10:
             b10 = 0;
         }
 break;
+    default:
+        alert("Please enter a number (1-10)");
+        break;
 }
