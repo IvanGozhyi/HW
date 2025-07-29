@@ -31,6 +31,7 @@ switch (choice) {
                 }
             }
             break;
+            //Task 4
             case 4:
                 let prime = parseInt(prompt("Enter number"));
                 if (prime % 1 === 0 || prime % prime === 0) {
@@ -39,6 +40,8 @@ switch (choice) {
                     document.write("your number is not prime");
                 }
                 break;
+
+                //If user wrote wrong number that doesn't satisfy menu
     default:
         alert("Please enter a number (1-4)");
         break;
