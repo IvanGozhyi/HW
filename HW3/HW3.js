@@ -32,13 +32,25 @@ switch (choice) {
             }
             break;
             //Task 4
-            case 4:
+    case 4:
                 let prime = parseInt(prompt("Enter number"));
-                if (prime % 1 === 0 || prime % prime === 0) {
-                    document.write("your number is prime");
+                let isPrime = true;// boolean variable for checking up the number
+
+                if (prime <= 1){
+                    isPrime = false;
                 } else {
-                    document.write("your number is not prime");
+                    for (let i = 2; i <= Math.sqrt(prime); i++){ //If "i" is greater than sqrt(prime), it can't be a divisor of prime
+                        if (prime % i === 0) {
+                            isPrime = false;
+                            break;
+                        }
+                    }
                 }
+        if (isPrime) {
+            document.write("Your number is prime");
+        } else {
+            document.write("Your number is not prime");
+        }
                 break;
 
                 //If user wrote wrong number that doesn't satisfy menu
