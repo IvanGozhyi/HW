@@ -3,6 +3,7 @@ let choice = parseInt(prompt("What is your choice?"));
 
 
 switch (choice) {
+    //Task 1
     case 1:
 const sum = (function () {
     let total = 0;
@@ -18,6 +19,7 @@ const sum = (function () {
         console.log(sum(41));
 break;
 
+//Task 2
 case 2:
     function curryMultiply (a) {
         return function (b){
@@ -28,7 +30,7 @@ case 2:
     console.log(curryMultiply(9)(10));
     break;
 
-
+//Task 3
 case 3:
 
 //Recursive variant
