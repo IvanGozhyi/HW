@@ -1,3 +1,4 @@
+
 let choice = parseInt(prompt("What is your choice?"));
 
 
