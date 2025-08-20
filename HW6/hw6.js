@@ -6,8 +6,7 @@ switch (choice) {
         let step = 0;
 
         let ladder = {
-            up: () =>
-            {
+            up: () => {
                 step++;
                 return ladder;
             },
@@ -15,7 +14,7 @@ switch (choice) {
                 step--;
                 return ladder;
             },
-            showStep: ()=> {
+            showStep: () => {
                 console.log(step);
                 return ladder;
             }
@@ -25,15 +24,15 @@ switch (choice) {
         break;
     case 2:
         const books = [
-            { title: "JS для начинающих", price: 500, genre: "programming" },
+            {title: "JS для начинающих", price: 500, genre: "programming"},
 
-            { title: "CSS в деталях", price: 300, genre: "design" },
+            {title: "CSS в деталях", price: 300, genre: "design"},
 
-            { title: "React быстро", price: 800, genre: "programming" },
+            {title: "React быстро", price: 800, genre: "programming"},
         ];
 
 
-        let filterByGenre = (books , genre) => {
+        let filterByGenre = (books, genre) => {
             return books.filter(book => book.genre === genre);
         }
 
@@ -45,7 +44,7 @@ switch (choice) {
             return books.reduce((total, book) => total + book.price, 0);
         }
 
-        console.log(filterByGenre(books , "programming"));
+        console.log(filterByGenre(books, "programming"));
 
         console.log(showTitle(books));
 
@@ -56,16 +55,16 @@ switch (choice) {
     case 3:
 
         const students = [
-            { name: "Аня", grades: [5, 4, 4, 5] },
-            { name: "Петя", grades: [3, 4, 4, 3] },
-            { name: "Ира", grades: [5, 5, 5, 5] },
+            {name: "Аня", grades: [5, 4, 4, 5]},
+            {name: "Петя", grades: [3, 4, 4, 3]},
+            {name: "Ира", grades: [5, 5, 5, 5]},
         ];
 
         let showNameAndAverage = (students) => {
-           return students.map(students => ({
-            name: students.name,
-            average: students.grades.reduce((sum, g) => sum + g, 0) / students.grades.length
-        }));
+            return students.map(students => ({
+                name: students.name,
+                average: students.grades.reduce((sum, g) => sum + g, 0) / students.grades.length
+            }));
         }
         console.log(showNameAndAverage(students));
 
@@ -93,18 +92,16 @@ switch (choice) {
         break;
     case 5:
         const items = [
-            { name: "apple", quantity: 2, price: 30 },
-            { name: "banana", quantity: 5, price: 10 },
-            { name: "orange", quantity: 3, price: 20 },
+            {name: "apple", quantity: 2, price: 30},
+            {name: "banana", quantity: 5, price: 10},
+            {name: "orange", quantity: 3, price: 20},
         ];
 
         let quantityXPrice = (items) => {
             return items.map(items => ({
-                name: items.name,
-                total : items.quantity * items.price,
+                    name: items.name,
+                    total: items.quantity * items.price,
                 })
-
-
             )
         }
 
@@ -139,24 +136,7 @@ switch (choice) {
         break;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
 
 

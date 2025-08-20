@@ -21,10 +21,10 @@ const sum = (function () {
 break;
 
 //Task 2
-case 2:
+    case 2:
     function curryMultiply (a) {
-        return function (b){
-            return a * b;
+         return function (b){
+                return a * b;
         };
     }
 
