@@ -13,6 +13,20 @@ let showNumberOfOrders = (orders) => {
 
 console.log(showNumberOfOrders(orders));
 
+let showNumberOfOrders2 = (orders) => {
+    let counts = new Map();
+
+    orders.map(order => {
+        let current = counts.get(order.user) || 0;
+        counts.set(order.user, current + 1);
+    });
+
+    return counts;
+};
+
+
+console.log(showNumberOfOrders2(orders));
+
 
 let sumOfOrder = (orders) => {
     return orders
@@ -32,6 +46,31 @@ let sumOfOrder = (orders) => {
 };
 
 console.log(sumOfOrder(orders));
+
+
+let sumOfOrders2 = (orders) => {
+    let map = new Map();
+
+    orders.forEach(order => {
+        let sum = 0;
+
+
+        order.items.forEach(item => {
+            sum += Number(item.price);
+        });
+
+
+        if (!map.has(order.user)) {
+            map.set(order.user, 0);
+        }
+        map.set(order.user, map.get(order.user) + sum);
+    });
+
+    return map;
+}
+
+console.log(sumOfOrders2(orders));
+
 
 let getUniqueItems = (orders) => {
 
