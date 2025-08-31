@@ -1,0 +1,51 @@
+.textHolder{
+    display : flex;
+    justify-content: center;
+
+}
+
+.divButton {
+    height: 100px;
+    width : 300px;
+    text-align: center;
+    background-color: cyan;
+
+}
+
+.additive {
+    color: red;
+    font-weight: bolder;
+}
+
+.text{
+    color: blue;
+    font-weight: bold;
+    display: flex;
+
+}
+
+#output{
+    display: flex;
+    position: relative;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 150px;
+}
+.imageBtn{
+    width: 100px;
+    height: 40px;
+    border-radius: 5%;
+    border-width: 1px;
+
+}
+
+.imgContainer{
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    height: 500px;
+}
