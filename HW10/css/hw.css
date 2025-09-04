@@ -1,0 +1,43 @@
+.box{
+    width:300px;
+    height:200px;
+    margin:20px;
+    display: flex;
+}
+.btn{
+    width:100px;
+    height:30px;
+    border-radius:10px;
+    background-color: lightblue;
+    margin: 5px;
+}
+
+.childButton{
+    width:100px;
+    height:30px;
+    border-radius:10px;
+    background-color: lightblue;
+}
+
+.parent{
+    width:400px;
+    height:100px;
+    margin:20px;
+}
+.wrapper{
+    margin:20px;
+    height:100px;
+    width:200px;
+}
+#submitTasks{
+    width:100px;
+    height:30px;
+    border-radius:10px;
+    background-color: lightblue;
+}
+
+#forTasks{
+    border-radius: 10px;
+    height:30px;
+    width:150px;
+}

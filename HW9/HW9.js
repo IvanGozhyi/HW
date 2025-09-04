@@ -77,6 +77,7 @@ switch (choice) {
        break;
 }
 
+console.log(navigator)
 
 
 
