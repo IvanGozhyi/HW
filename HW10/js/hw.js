@@ -1,4 +1,4 @@
-
+let toDo = [];
 let url = "";
 
 let forPrompt = () => {
@@ -16,6 +16,9 @@ let forPrompt = () => {
 let forSubmit = () => {
     let subButton = document.getElementById("subButton");
     subButton.addEventListener("click", function () {
+        if(!url){
+            alert("Please enter a valid URL");
+        }
         window.location.href = url;
     })
 }
@@ -48,8 +51,11 @@ let toDoList = () => {
     let ul = null;
 
     submitTasks.addEventListener("click", function () {
+
         let value = forTasks.value.trim();
         if (!value) return;
+
+        toDo.push(value);
 
         if(!ul){
             ul = document.createElement("ul");
@@ -66,6 +72,7 @@ let toDoList = () => {
 
         btn.addEventListener("click", function () {
             li.parentNode.removeChild(li);
+            toDo.pop();
         })
 
         forTasks.value = "";
