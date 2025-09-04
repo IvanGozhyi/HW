@@ -12,16 +12,19 @@ let forPrompt = () => {
 }
 
 
-
 let forSubmit = () => {
     let subButton = document.getElementById("subButton");
     subButton.addEventListener("click", function () {
         if(!url){
             alert("Please enter a valid URL");
+            return;
         }
         window.location.href = url;
     })
 }
+
+
+
 
 let task1 = () => {
     forPrompt();
@@ -71,12 +74,19 @@ let toDoList = () => {
         li.appendChild(btn);
 
         btn.addEventListener("click", function () {
+            const index = toDo.indexOf(value);
+            if (index > -1) {
+                toDo.splice(index , 1);
+            }
+
             li.parentNode.removeChild(li);
-            toDo.pop();
+
         })
 
         forTasks.value = "";
     })
 }
+
+console.log(toDo);
 
 toDoList();
