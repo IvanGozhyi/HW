@@ -14,6 +14,58 @@
     <div class="info"></div>
   </div>
 
+
+
+
+
+  <form name="forOrder" class = "order-form">
+    <label><input type = "text" name = "name" class="name" placeholder = "Enter your name*"></label><br>
+    <label><input type = "text" name = "lastName" class="lName" placeholder="Enter your last name*"></label><br>
+    <label><input type = "text" name = "middleName" class="mName" placeholder="Enter your middle name*"></label><br>
+    Select city*<br>
+    <label><select name="city" class="city">
+      <option value="ODS">Odesa</option>
+      <option value="KH">Kharkiv</option>
+      <option value="MK">Mykolaiv</option>
+      <option value="KV">Kyiv</option>
+      <option value="DP">Dnipro</option>
+      <option value="LT">Lutsk</option>
+      <option value="BT">Bila Tserkva</option>
+      <option value="ZH">Zhytomyr</option>
+      <option value="CH">Cherkasy</option>
+      <option value="CHR">Chernihiv</option>
+    </select>
+    </label><br>
+    <label>
+      Enter the branch number*<br>
+      <select name="branchNumber" class="branchNumber">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </label><br>
+    <label>
+      Enter the way of payment*<br>
+      <input type = "radio" name = "wayOfPayment" value = "paymentOnAcc" class = "wayOfPayment"> Payment on account
+      <input type = "radio" name = "wayOfPayment" value = "paymentImposed" class = "wayOfPayment"> Payment on imposed
+    </label><br>
+    <label>
+      Enter the amount of product*<br>
+      <input type = "number" name = "amount" min = "1" max = "100" step = "1" class = "amount"> x
+    </label><br>
+    <label>
+      Enter the comment*<br>
+      <textarea name = "comment" placeholder = "Enter your comment" class = "comment"></textarea>
+    </label><br>
+    <label class="forPrice"></label><br>
+    <label>"*" - must be entered</label><br>
+    <label>
+      <input type = "checkbox" name = "rememberMe" value = "rememberMe" class = "rememberMe"> Remember me
+    </label><br>
+    <button type = "button" name = "submit" value = "submit" class = "submit">Submit</button>
+  </form>
   <div class="order-details"></div>
 
 

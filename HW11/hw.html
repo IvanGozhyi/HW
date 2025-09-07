@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<form name="signUp">
+  <label class="fname">First Name<br>
+    <input type="text" name="firstname" class="firstName" placeholder="First Name">
+  </label><br>
+ <label class="lname">Last Name <br>
+   <input type="text" name="lastname" class="lastName"  placeholder="Last Name">
+ </label><br>
+
+  <label class="dateOfBirth">Date of birth<br>
+    <input type="date" name="dateofbirth" class="date" placeholder="Date of Birth">
+  </label><br>
+
+  <label class="genderL">Gender<br>
+    <input type ="radio" name="gender" value="Male" class="gender">Male
+    <input type ="radio" name="gender" value="Female" class="gender">Female
+    <input type ="radio" name="gender" value="Other" class="gender">Other
+  </label><br>
+
+<label class="city">City<br>
+    <select name="city" >
+    <option value="KV">Kyiv</option>
+    <option value="CHG">Chicago</option>
+    <option value="BRL">Berlin</option>
+    <option value="TKY">Tokyo</option>
+    </select>
+</label> <br>
+
+  <label class="addressLabel">Address<br>
+    <textarea name="address" class = "address">
+    </textarea>
+  </label> <br>
+
+
+  <label class="forLanguage">
+    <input type="checkbox" name="forLanguage" value="Java">Java<br>
+    <input type="checkbox" name="forLanguage" value="Python">Python<br>
+    <input type="checkbox" name="forLanguage" value="C++">C++<br>
+    <input type="checkbox" name="forLanguage" value="C#">C#<br>
+    <input type="checkbox" name="forLanguage" value="Javascript">Javascript<br>
+    <input type="checkbox" name="forLanguage" value="PHP">PHP<br>
+    <input type="checkbox" name="forLanguage" value="Ruby">Ruby<br>
+  </label><br>
+
+  <button  type = "button" class="submit">Submit</button>
+</form>
+
+
+
+<script src="hw.js"></script>
+</body>
+</html>
