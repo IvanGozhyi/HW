@@ -1,5 +1,6 @@
 
 
+
 let cities = {
     KV : "Kyiv",
     CHG: "Chicago",
@@ -36,21 +37,30 @@ let submit = () => {
 
 
     submitBtn.addEventListener("click", () => {
-        document.write(`
-           <p>First Name: ${fname.value}</p>
-           <p>Last Name: ${lname.value}</p>
-           <p>B-Day: ${date.value}</p>
-           <p>Gender: ${gender.value}</p>
-           <p>Cities: ${cities[city]}</p>
-           <p>Address: ${address.value}</p>
-           <p>Programming languages: ${showSkills()}</p>
-        
-          
-`);
+        let subArr = [];
+        let wrap = document.querySelector('.wrapper');
+        subArr.push({
+           FirstName: fname.value,
+           LastName: lname.value,
+           BirthDay: date.value,
+           Gender: gender.value,
+           Cities: cities[city],
+           Address: address.value,
+           ProgrammingLanguages: showSkills(),
+    });
+        console.log(subArr);
+
+       document.write(` 
+       <p>First Name: ${fname.value}</p>
+       <p>Last Name: ${lname.value}</p>
+       <p>Birth Day: ${date.value}</p>
+       <p>Gender: ${gender.value}</p>
+       <p>Cities: ${cities[city]}</p>
+       <p>Address: ${address.value}</p>
+       <p>Programming Languages: ${showSkills()}</p>`)
 
 
-
-    })
+    });
 }
 
 submit();
