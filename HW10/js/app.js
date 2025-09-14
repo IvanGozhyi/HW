@@ -1,4 +1,3 @@
-
 const cities = {
   ODS: "Odesa",
   KH: "Kharkiv",
@@ -12,21 +11,23 @@ const cities = {
   CHR: "Chernihiv"
 };
 
-
-
-
+let orderInfo = JSON.parse(localStorage.getItem('orders')) || [];
+let rememberPerson = [];
 
 const showDescription = product => {
   const parent = document.querySelector('.info');
   if (!parent) {
     return;
   }
+
   parent.innerHTML = "";
 
   const descriptionPole = document.createElement('label');
   descriptionPole.textContent = `${product.description} - ${product.price}$`;
+
   const buyButton = document.createElement('button');
   buyButton.textContent = 'Buy';
+
   buyButton.addEventListener('click', () => {
     const form = document.forms[0];
     const name = document.querySelector('.name');
@@ -39,12 +40,14 @@ const showDescription = product => {
     const comment = document.querySelector('.comment');
     const remember = document.querySelector('.rememberMe');
     const subBtn = document.querySelector('.submit');
-    let orderInfo = [];
-    let rememberPerson = [];
 
 
+
+    form.reset();
     form.classList.remove("order-form");
     form.classList.add("visible");
+
+
 
     const priceParent = document.querySelector('.forPrice');
     const price = document.createElement("span");
@@ -56,66 +59,67 @@ const showDescription = product => {
       price.textContent = `Price - ${product.price * quantity}$`;
     };
 
-
     updatePrice();
-
     amount.addEventListener('input', updatePrice);
 
     subBtn.addEventListener("click", () => {
-      orderInfo.push({
-        Name: name.value,
-        LastName: lName.value,
-        MidName: mName.value,
-        City: cities[city],
-        BranchNumber: branchNumber.value,
-        WayOfPayment: wayOfPayment.value,
-        Amount: amount.value,
-        Comment: comment.value,
-        Price: product.price * amount.value,
-      })
-      console.log(orderInfo);
 
-      if (remember.checked) {
-        rememberPerson.push({
+
+      if (!name.value.trim() || !lName.value.trim() || !mName.value.trim() ||
+          !branchNumber.value.trim() || !amount.value.trim() || !comment.value.trim()) {
+        alert("Please fill all fields");
+        return;
+      } else {
+        orderInfo.push({
+          Product: product.name,
+          Price: product.price * amount.value,
           Name: name.value,
           LastName: lName.value,
           MidName: mName.value,
           City: cities[city],
           BranchNumber: branchNumber.value,
-        })
-        console.log(rememberPerson);
-      }
+          WayOfPayment: wayOfPayment.value,
+          Amount: amount.value,
+          Comment: comment.value,
+        });
+        console.log(orderInfo);
 
-      if (!name.value.trim() || !lName.value.trim() || !mName.value.trim() || !branchNumber.value.trim() || !branchNumber.value.trim() ||! amount.value.trim()||! comment.value.trim() ) {
-        alert("Please fill all fields");
-      }else{
+        if (remember.checked) {
+          rememberPerson.push({
+            Name: name.value,
+            LastName: lName.value,
+            MidName: mName.value,
+            City: cities[city],
+            BranchNumber: branchNumber.value,
+          });
+          console.log(rememberPerson);
+        }
+        localStorage.setItem('orders', JSON.stringify(orderInfo));
         const message = document.querySelector('.order-details');
         const orderMessage = document.createElement('span');
         const cancelButton = document.createElement('button');
+
         cancelButton.textContent = 'X';
         orderMessage.innerText = "";
         message.innerHTML = "";
         orderMessage.textContent = 'The product was successfully ordered!';
+
         cancelButton.addEventListener('click', () => {
           orderMessage.remove();
           cancelButton.remove();
-        })
+        });
+
         message.appendChild(orderMessage);
         message.appendChild(cancelButton);
       }
+      form.reset();
+      price.textContent = "";
+    });
+  });
 
-
-    })
-
-
-
-
-  })
   parent.appendChild(descriptionPole);
   parent.appendChild(buyButton);
-
-}
-
+};
 
 const showCategories = () => {
   const parent = document.querySelector('.categories');
@@ -124,17 +128,15 @@ const showCategories = () => {
   }
 
   const categoriesList = document.createElement('ul');
+
   categoriesList.addEventListener('click', event => {
     if (event.target && event.target.tagName === 'LI') {
       const categoryId = event.target.getAttribute('data-category');
-      // const category = getCategoryById(categoryId);
       const category = categories[categoryId];
       if (!category) {
         return;
       }
-      // console.log(category);
       showProductsByCategory(category);
-
     }
   });
 
@@ -142,21 +144,15 @@ const showCategories = () => {
     const element = document.createElement('li');
     element.textContent = category.name;
     element.setAttribute('data-category', category.id);
-
-    // element.addEventListener('click', () => {
-    //   console.log(category);
-    // });
-
     categoriesList.appendChild(element);
   });
 
   parent.appendChild(categoriesList);
-}
+};
 
 // const getCategoryById = id => categories.find(category => category.id == id);
 
 const showProductsByCategory = category => {
-  // const {products} = category; те саме, що і нижче
   const products = category.products;
   const parent = document.querySelector('.products');
   if (!parent) {
@@ -164,13 +160,10 @@ const showProductsByCategory = category => {
   }
 
   parent.innerHTML = '';
-
   const productsList = document.createElement('ul');
 
   productsList.addEventListener('click', event => {
     if (event.target && event.target.tagName === 'LI') {
-      //console.log(event.target);
-      // const categoryId = category.id
       const categoryId = event.target.getAttribute('data-category');
       const productId = event.target.getAttribute('data-product');
       console.log(productId);
@@ -178,31 +171,57 @@ const showProductsByCategory = category => {
     }
   });
 
-
-
   products.forEach(product => {
     const element = document.createElement('li');
     element.textContent = `${product.name} - $${product.price}`;
     element.setAttribute('data-product', product.id);
     element.setAttribute('data-category', category.id);
+
     element.addEventListener('click', () => {
-    showDescription(product);
-    })
+      showDescription(product);
+    });
+
     productsList.appendChild(element);
   });
 
   parent.appendChild(productsList);
+};
+
+let goToOrder = () => {
+  let ordersBtn = document.querySelector('.toOrders');
+  if (!ordersBtn) return;
+
+  ordersBtn.addEventListener('click', () => {
+    window.location.href = "../html/orders.html";
+  });
+};
+
+let goBack = () => {
+  let goBackBtn = document.querySelector('.back');
+  goBackBtn.addEventListener('click', () => {
+    window.location.href = "../html/index.html";
+  });
+};
 
 
+let showOrders = () => {
+  const ordersList = document.querySelector('.ordersOutput');
+  ordersList.innerHTML = "";
 
-
-}
-
-
+  if (orderInfo.length === 0) {
+    ordersList.innerHTML = "<p>There are no orders yet</p>";
+  } else {
+    orderInfo.forEach((order, i) => {
+      const div = document.createElement("div");
+      div.textContent = `№${i + 1}: ${order.Product} — ${order.Price}$ (x${order.Amount})`;
+      ordersList.appendChild(div);
+    });
+  }
+};
 
 
 showCategories();
-
-
-
+goToOrder();
+showOrders();
+goBack();
 
