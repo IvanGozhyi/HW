@@ -206,18 +206,40 @@ let goBack = () => {
 
 let showOrders = () => {
   const ordersList = document.querySelector('.ordersOutput');
+  if (!ordersList) return;
+
   ordersList.innerHTML = "";
 
   if (orderInfo.length === 0) {
     ordersList.innerHTML = "<p>There are no orders yet</p>";
-  } else {
-    orderInfo.forEach((order, i) => {
-      const div = document.createElement("div");
-      div.textContent = `№${i + 1}: ${order.Product} — ${order.Price}$ (x${order.Amount})`;
-      ordersList.appendChild(div);
-    });
+    return;
   }
+
+  orderInfo.forEach((order, i) => {
+    const div = document.createElement("div");
+    div.textContent = `№${i + 1}: ${order.Product} — ${order.Price}$ (x${order.Amount})`;
+
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.style.marginLeft = "10px";
+
+    deleteBtn.addEventListener("click", () => {
+
+      orderInfo.splice(i, 1);
+
+
+      localStorage.setItem('orders', JSON.stringify(orderInfo));
+
+
+      showOrders();
+    });
+
+    div.appendChild(deleteBtn);
+    ordersList.appendChild(div);
+  });
 };
+
 
 
 showCategories();
