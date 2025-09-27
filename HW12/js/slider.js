@@ -1,3 +1,5 @@
+let slideNum = 1;
+let interval = null;
 
 let showSlides = (n) => {
     let dots = document.getElementsByClassName("dot");
@@ -16,19 +18,32 @@ let showSlides = (n) => {
     }
     slides[slideNum-1].style.display = "block";
     dots[slideNum-1].className += " active";
+}
+
+let timer = () => {
+    if (interval) clearInterval(interval);
+     interval = setInterval(() => {
+        slideNum++;
+        showSlides(slideNum);
+    }, 3000);
 
 }
 
-let slideNum = 1;
+
 showSlides(slideNum);
+timer();
 
 
-function currentSlide(n) {
+
+let currentSlide = (n) => {
     showSlides(slideNum = n);
+    timer()
 }
 
 let plusSlides = (n) => {
     slideNum += n;
     showSlides(slideNum);
-
+    timer()
 }
+
+

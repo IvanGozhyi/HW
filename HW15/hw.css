@@ -1,0 +1,19 @@
+.timer{
+    position: relative;
+    width: 500px;
+    height: 250px;
+    border-style: solid;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    margin: auto;
+}
+span{
+    position: relative;
+
+    color:black;
+    font-size:100px;
+    font-weight: bold;
+}
