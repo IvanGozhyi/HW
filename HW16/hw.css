@@ -1,0 +1,32 @@
+.forWeather{
+    width:500px;
+    height:300px;
+    background-color:#1E3A8A;
+    color:white;
+    padding:10px;
+    font-family: sans-serif;
+    border-radius:10px;
+}
+.header{
+    display:flex;
+    justify-content: space-between;
+
+}
+
+.forTemp{
+    padding-bottom:10px;
+    font-weight: bolder;
+
+}
+
+.refresh:hover{
+    cursor:pointer;
+}
+.refresh{
+    background-color:#1E3A8A;
+    color:white;
+    border-radius:10px;
+    border:none;
+}
+
+
