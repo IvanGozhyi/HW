@@ -1,0 +1,62 @@
+.hidden{
+    display:none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* адаптивні колонки */
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.divItem {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.
+
+.divItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+
+
+.description {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+
+
+
+button{
+    background-color: #1E3A8A;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 15px;
+
+    color: #fff;
+}
+
+.dark_theme{
+    background-color:#1E1E1E;
+}
+
+.themes{
+    margin-bottom:10px;
+    margin-top:10px;
+}
