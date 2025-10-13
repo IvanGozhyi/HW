@@ -1,0 +1,38 @@
+.wrapper {
+    position: relative;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    padding: 20px;
+}
+.deleteBtn{
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.task{
+    color:white;
+    list-style: none;
+}
+
+
+.task:hover{
+    cursor: pointer;
+    color: orange;
+}
+
+button{
+    border-radius: 10px;
+    border:none;
+    background-color: lightblue;
+    color: white;
+}
+body{
+    background-color: #1E1E1E;
+}
