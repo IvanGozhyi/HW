@@ -11,8 +11,6 @@ let url = "https://swapi.dev/api/"
 let nextUrl = "";
 
 
-
-
 let showInfo = (themes, clear = true) => {
     let ApiUrl = themes.startsWith("http") ? themes :  `${url}${themes}`;
     fetch(ApiUrl)
@@ -33,7 +31,6 @@ let showInfo = (themes, clear = true) => {
                     return;
                 }
 
-
                 let description = document.createElement("div");
                 description.classList.add('description');
 
@@ -41,7 +38,7 @@ let showInfo = (themes, clear = true) => {
                     description.innerHTML =`
                     Height:${item.height}<br>
                     Mass:${item.mass}<br>
-                    Hair_color:${item.hair_color}<br>
+                    Hair color:${item.hair_color}<br>
                     `;
                 }else if (choice === "planets"){
                     description.innerHTML =`
@@ -55,16 +52,15 @@ let showInfo = (themes, clear = true) => {
                     Manufacturer:${item.manufacturer}<br>
                     Cost in credits:${item.cost_in_credits}<br>
                     `;
-                }else description.innerHTML = "";
-
+                }else {
+                    description.innerHTML = ""
+                }
 
                divItem.appendChild(description);
-
 
             });
             container.appendChild(divItem);
         });
-
 
 
         nextUrl = data.next;
@@ -75,16 +71,11 @@ let showInfo = (themes, clear = true) => {
             loadMoreBtn.classList.add('hidden');
         }
 
-
-
-
-
-
     })
+
         .catch(error => {
             console.log(`Error,${error}`);
         });
-
 
 }
 
