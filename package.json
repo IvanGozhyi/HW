@@ -1,10 +1,29 @@
 {
+  "name": "untitled1",
+  "version": "1.0.0",
+  "main": "HW1/index.js",
+  "scripts": {
+    "dev": "../node_modules/.bin/vite",
+    "build": "babel HW17/js --out-dir HW17/dist"
+  },
+  "private": true,
   "dependencies": {
-    "babel": "^5.8.38",
-    "moment": "^2.30.1"
+    "bootstrap": "^5.3.8",
+    "jquery": "^3.7.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.28.3",
-    "@babel/core": "^7.28.4"
-  }
+    "vite": "^7.1.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanGozhyi/HW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanGozhyi/HW/issues"
+  },
+  "homepage": "https://github.com/IvanGozhyi/HW#readme",
+  "description": ""
 }
