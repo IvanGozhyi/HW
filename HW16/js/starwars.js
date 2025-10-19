@@ -4,6 +4,7 @@ let planets = document.querySelector('.planets');
 let vehicles = document.querySelector('.vehicles');
 let loadMoreBtn = document.querySelector('.loadMore');
 let theme = document.querySelector('.themes');
+import '../css/styles.scss';
 
 
 let choice = ""

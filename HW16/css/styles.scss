@@ -1,0 +1,81 @@
+
+$primary-color: #1E3A8A;
+$light-bg: #fff;
+$dark-bg: #1E1E1E;
+$hover-shadow: rgba(0, 0, 0, 0.15);
+$card-shadow: rgba(0, 0, 0, 0.1);
+$text-color: #333;
+$desc-bg: #f9f9f9;
+
+
+button {
+  background-color: $primary-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px $hover-shadow;
+  padding: 15px;
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+
+.divItem {
+  background-color: $light-bg;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px $card-shadow;
+  padding: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px $hover-shadow;
+  }
+}
+
+
+.description {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: $desc-bg;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: $text-color;
+  transition: all 0.3s ease;
+}
+
+
+.dark_theme {
+  background-color: $dark-bg;
+}
+
+
+.themes {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+.btncontainer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
