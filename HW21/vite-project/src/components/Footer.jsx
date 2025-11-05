@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {LanguageContext} from "../contexts/context.js";
 
 function Footer() {
+    const {language} = useContext(LanguageContext);
     return (
         <footer className="site-footer">
-            <div>Made by Hozhyi Ivan</div>
+            <div>{language === "EN" ?"Made by Hozhyi Ivan":"Зроблено Гожим Іваном"}</div>
         </footer>
     );
 }

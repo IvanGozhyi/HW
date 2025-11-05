@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import {LanguageContext} from "../contexts/context.js";
 
 
 function ContactList() {
     const [contacts, setContacts] = useState([]);
 
+    const { language } = useContext(LanguageContext) || { language: "EN" };
 
     useEffect(() => {
         const savedContacts = JSON.parse(localStorage.getItem("contacts")) || [];
@@ -20,7 +22,7 @@ function ContactList() {
     return (
         <div className="contact-list">
 
-            <h3 className="page-title">Contacts List</h3>
+            <h1 className="page-title">{language === "EN" ? "Contacts" : "Контакти"}</h1>
             <ul>
                 {contacts.map((c, i) => (
                     <li key={i} className="contact-item">

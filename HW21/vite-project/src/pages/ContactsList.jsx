@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ContactList from "../components/ContactList.jsx";
 
+
 function ContactsList() {
+
     return (
         <main className="app-container page-content">
             <ContactList/>
