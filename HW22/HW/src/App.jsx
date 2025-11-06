@@ -3,7 +3,7 @@ import Contact from './components/Contact.jsx';
 import ContactList from './components/ContactList.jsx';
 
 function App() {
-    const [page, setPage] = useState("list"); // "list" або "create"
+    const [page, setPage] = useState("list");
 
     const goToList = () => setPage("list");
     const goToCreate = () => setPage("create");

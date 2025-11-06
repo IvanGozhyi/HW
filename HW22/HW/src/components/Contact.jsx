@@ -31,7 +31,7 @@ function Contact({ onBack }) {
 
         alert("Contact added successfully!");
         contactForm.reset();
-        onBack(); // Повертаємось до списку
+        onBack();
     };
 
     const handleCancel = () => {
