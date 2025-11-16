@@ -7,7 +7,7 @@ export const store = configureStore({
     reducer: {
         todos: todoReducer,
     },
-    preloadedState: { todos: savedTodos }   // ← початкове значення
+    preloadedState: { todos: savedTodos }
 });
 
 store.subscribe(() => {
