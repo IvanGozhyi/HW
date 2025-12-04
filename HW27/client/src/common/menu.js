@@ -5,6 +5,9 @@ import TasksPage from "../pages/TasksPage/TasksPage";
 import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import NewTaskPage from "../pages/NewTaskPage/NewTaskPage.jsx";
+import {Component} from "react";
+import EditProjectPage from "../pages/EditProjectPage/EditProjectPage.jsx";
+import EditTaskPage from "../pages/EditTaskPage/EditTaskPage.jsx";
 
 export const urls = {
   NEW_PROJECT_URL: '/projects/new',
@@ -17,11 +20,17 @@ export const menuItems = [
     title: 'Main',
     Component: MainPage,
   },
-  {
-    path: urls.PROJECTS_URL,
-    title: 'Projects',
-    Component: ProjectsPage,
-  },
+    {
+        path: urls.NEW_PROJECT_URL,
+        hideInMenu: true,
+        Component: NewProjectPage,
+    },
+    {
+        path: urls.PROJECTS_URL,
+        title: 'Projects',
+        Component: ProjectsPage
+
+    },
   {
     path: urls.NEW_PROJECT_URL,
     hideInMenu: true,
@@ -53,5 +62,18 @@ export const menuItems = [
         path: '/tasks/:projectId/newtask',
         hideInMenu:  true,
         Component: NewTaskPage
+    },
+    {
+        path: '/tasks/:projectId/edit/:taskId',
+        hideInMenu:  true,
+        Component: EditTaskPage
+    },
+    {
+        path: '/projects/:projectId/edit',
+        hideInMenu:  true,
+        Component: EditProjectPage
     }
+
+
+
 ];

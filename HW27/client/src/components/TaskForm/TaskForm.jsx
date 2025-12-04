@@ -6,7 +6,7 @@ import './TaskForm.css';
 import {saveTaskAsync} from "../../store/features/tasks.js";
 import {useNavigate, useParams} from "react-router";
 
-function TaskForm() {
+function TaskForm({ initialData = null }) {
     const navigate = useNavigate();
     const {loaded: isTaskSaved} = useSelector(state => state.tasks);
     const titleRef = useRef();
@@ -17,18 +17,35 @@ function TaskForm() {
 
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        if (!initialData) return;
+
+        if (initialData.title) titleRef.current.value = initialData.title;
+        if (initialData.description) descriptionRef.current.value = initialData.description;
+        if (initialData.priority) priorityRef.current.value = initialData.priority;
+
+    }, [initialData]);
+
     const handleSave = (e) => {
         e.preventDefault();
-        const title = titleRef.current.value;
-        const description = descriptionRef.current.value;
+
+        const title = titleRef.current.value.trim();
+        const description = descriptionRef.current.value.trim();
         const priority = priorityRef.current.value;
 
+        if (!title) {
+            alert("Title cannot be empty!");
+            return;
+        }
+
         dispatch(saveTaskAsync({
+            projectId,
             title,
             description,
             priority,
-            projectId}));
-    }
+            id: initialData?.id
+        }));
+    };
 
     useEffect(() => {
         if (isTaskSaved) {

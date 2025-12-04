@@ -11,7 +11,6 @@ export default function ProjectCard({id, title, description, priority, onClick }
     onClick && onClick(id);
   }
 
-
     const handleAddTask = (e, ProjectId) => {
         e.stopPropagation();
         navigate(`http://localhost:5173/tasks/${ProjectId}/newtask`);
@@ -20,6 +19,11 @@ export default function ProjectCard({id, title, description, priority, onClick }
     const deleteProject = (e) => {
         e.stopPropagation();
         dispatch(deleteProjectAsync(id));
+    }
+
+    const handleEdit = (e) => {
+        e.stopPropagation();
+        navigate(`http://localhost:5173/projects/${id}/edit`);
     }
 
 
@@ -31,6 +35,7 @@ export default function ProjectCard({id, title, description, priority, onClick }
         {description}
       </p>
         <button onClick={deleteProject}>Delete Project</button>
+        <button onClick={handleEdit}>Edit Project</button>
         <button type="button" onClick={(e) => handleAddTask(e, id)}>Add Task</button>
 
     </div>

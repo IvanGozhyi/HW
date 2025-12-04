@@ -43,8 +43,16 @@ export const saveTaskAsync = createAsyncThunk(
 
 export const deleteTaskAsync = createAsyncThunk(
     "tasks/delete",
-    async (projectId) => {
-        const response = await axios.delete(`${TASKS_URL}/${projectId}`);
+    async (taskId) => {
+        const response = await axios.delete(`${TASKS_URL}/${taskId}`);
+        return response.data;
+    }
+);
+
+export const updateTaskAsync = createAsyncThunk(
+    "tasks/update",
+    async (task) => {
+        const response = await axios.put(`${TASKS_URL}/${task.id}`, task);
         return response.data;
     }
 );
@@ -57,16 +65,29 @@ const tasksSlice = createSlice({
   },
   extraReducers: builder => {
       builder.addCase(getTasksAsync.fulfilled, (state, action) => {
-      state.data = action.payload;
-      })
+          state.data = action.payload;
+      });
+
       builder.addCase(saveTaskAsync.fulfilled, (state, action) => {
           state.loaded = true;
-      })
+      });
+
       builder.addCase(deleteTaskAsync.fulfilled, (state, action) => {
           const id = action.payload.id;
-          state.data = state.data.filter(task => task.id !== id);
-      })
+          state.data = state.data.filter((task) => task.id !== id);
+      });
+
+      builder.addCase(updateTaskAsync.fulfilled, (state, action) => {
+          const updatedTask = action.payload;
+          const index = state.data.findIndex((t) => t.id === updatedTask.id);
+
+          if (index !== -1) {
+              state.data[index] = updatedTask;
+          }
+
+          state.loaded = true;
+      });
   }
-})
+});
 
 export default tasksSlice.reducer

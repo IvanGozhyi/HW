@@ -33,6 +33,23 @@ app.delete('/projects/:id', (request, response) => {
     }
 });
 
+app.put('/projects/:id', (request, response) => {
+    const { id } = request.params;
+    const data = request.body;
+
+    const index = projectsMock.findIndex((p) => p.id === id);
+
+    if (index === -1) {
+        return response.status(404).json({ error: 'Project not found' });
+    }
+
+    const updatedProject = { ...projectsMock[index], ...data };
+    projectsMock[index] = updatedProject;
+
+    return response.json(updatedProject);
+});
+
+
 app.get('/tasks', (request, response) => {
   return response.json(tasksData);
 });
@@ -63,8 +80,19 @@ app.delete('/tasks/:taskId', (req, res) => {
     res.json(deleted[0]);
 });
 
+app.put('/tasks/:taskId', (request, response) => {
+    const { taskId } = request.params;
+    const data = request.body;
+    const index = tasksData.findIndex(t => t.id === taskId);
+    if (index === -1) {
+        return response.status(404).json({ error: "Task not found" });
+    }
+    const updatedTask = { ...tasksData[index], ...data };
+    tasksData[index] = updatedTask;
+    return response.json(updatedTask);
+})
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

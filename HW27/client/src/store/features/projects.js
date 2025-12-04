@@ -38,6 +38,11 @@ export const deleteProjectAsync = createAsyncThunk(
     }
 )
 
+export const updateProjectAsync = createAsyncThunk('projects/update', async project => {
+    const result = await axios.put(`${PROJECTS_URL}/${project.id}`, project);
+    return result.data;
+})
+
 const projectsSlice = createSlice({
   name: 'projects',
   initialState,
@@ -69,7 +74,21 @@ const projectsSlice = createSlice({
     builder.addCase(deleteProjectAsync.fulfilled, (state, action) => {
         const id = action.payload.id;
         state.data = state.data.filter(p => p.id !== id);
-    })
+    });
+
+      builder.addCase(updateProjectAsync.fulfilled, (state, action) => {
+          const updatedProject = action.payload;
+
+          const index = state.data.findIndex(
+              p => p.id === updatedProject.id
+          );
+
+          if (index !== -1) {
+              state.data[index] = updatedProject;
+          }
+
+          state.loaded = true;
+      });
   }
 });
 
